@@ -1,0 +1,78 @@
+// ------------------------------------------------
+// REM CALC 
+// From foundation (https://github.com/zurb/foundation/)
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+// 
+//   remCalc(10 20 30px 40);
+// 
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+// 
+//   remCalc((10, 20, 30, 40px));
+// 
+// Optionally call with a different base (eg: 8px) to calculate rem.
+// 
+//   remCalc(16px 32px 48px, 8px);
+// 
+// If you require to comma separate your list
+// 
+//   remCalc((16px, 32px, 48), 8px);
+// EX: $label-padding: remCalc(3 10 4);
+// ------------------------------------------------
+
+@function remCalc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+
+// ------------------------------------------------
+// REM to PX&REM CALC 
+// From http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// 
+// EX:@include rem-fallback(margin, 10, 20, 30, 40);
+// TO:
+// body {
+//   margin: 160px 320px 480px 640px;
+//   margin: 10rem 20rem 30rem 40rem; 
+// }
+// ------------------------------------------------
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}

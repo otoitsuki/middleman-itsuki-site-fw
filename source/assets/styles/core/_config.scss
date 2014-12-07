@@ -1,0 +1,109 @@
+// *************************************
+//
+//   Settings
+//   -> Fonts, Variables
+//
+// *************************************
+
+// -------------------------------------
+//   Colors
+// -------------------------------------
+
+// ----- Palette ----- //
+
+$plum: #4e4e5b;
+$green: #81cdb0;
+$brown: #6c481d;
+$blue: #2ca7e5;
+
+// ----- Base ----- //
+
+$c-background-invert: white;
+$c-background: #ecf0f1;
+$c-text-invert: white;
+$c-text: #57595a;
+
+$c-link: $blue;
+$c-link-hover: darken($c-link, 10);
+$c-link-active: adjust_hue($c-link, 12);
+$c-link-visited: darken($c-link, 21);
+$c-link-focus: $c-link-hover;
+
+$c-selected-font: #fff;
+$c-selected-background: #0086AB;
+
+$c-invalid-background: #f0dddd;
+
+
+// ----- Typography ----- //
+$c-important: red;
+
+
+
+
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// ----- Borders & Box Shadow ----- //
+
+$b-borderColor: lighten($plum, 30%);
+$b-borderRadius: 3px;
+$b-borderStyle: solid;
+$b-borderWidth: 2px;
+$b-border: $b-borderWidth $b-borderStyle $b-borderColor;
+$b-boxShadow: 0 2px 0 rgba($c-text, 0.25);
+
+
+// ----- Typography ----- //
+
+$b-fontSize: 16px;
+$b-lineHeight: 24.8 / 16; // 24.8 / $b-fontSize
+$b-fontFamily-serif: "PMingLiU", serif;
+$b-fontFamily-sans:  "Source Han Sans", "Microsoft JhengHei", "Roboto", sans-serif;
+
+// default font-family //
+
+$b-fontFamily: $b-fontFamily-sans;
+
+// font-size //
+
+$b-fontSize-xs: 0.75em;
+$b-fontSize-s: 0.813em;
+$b-fontSize-m: 0.938em;
+$b-fontSize-l: 1.25em;
+$b-fontSize-xl: 1.5em;
+// P.s: H1 size = 32px / 2em
+
+
+// Material Design from https://github.com/Dogfalo/materialize/blob/master/sass/components/_typography.scss
+
+$b-fontSize-MD-h1: 4.1rem;
+$b-fontSize-MD-h2: 3.21rem;
+$b-fontSize-MD-h3: 2.42rem;
+$b-fontSize-MD-h4: 1.71rem;
+$b-fontSize-MD-h5: 1.42rem;
+$b-fontSize-MD-h6: 1rem;
+
+// 黃金比例字級 16px, 25.9px, 41.9px, 67.8px
+
+$b-fontSize-Golden-h1: 67.8px;
+$b-fontSize-Golden-h2: 41.9px;
+$b-fontSize-Golden-h3: 25.9px;
+$b-fontSize-Golden-h4: 16px;
+
+
+
+// ----- Sizing ----- //
+
+// $b-maxWidth: pxtoem(1024px);
+// $b-maxWidth-s: pxtoem(700px);
+$b-space: pxtoem(20px);
+$b-space-xs: 0.25 * $b-space;
+$b-space-s: 0.5 * $b-space;
+$b-space-l: 2 * $b-space;
+$b-space-xl: 4 * $b-space;
+
+

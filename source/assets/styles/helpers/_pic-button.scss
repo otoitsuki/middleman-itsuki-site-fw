@@ -1,0 +1,24 @@
+
+// 命名規則
+// normal:XXXX.png
+// hover:XXXX_over.png
+
+// Sample:
+// @include pic-button("66page-now66-cart",png,0,0,141px,40px);
+
+
+@mixin pic-button($imgfile,$format,$xpos,$ypos,$width,$height) {
+	display: inline-block;
+	background: url('../images/'+ $imgfile + '.' + $format) no-repeat transparent;
+	background-position: $xpos $ypos;
+	height: $height;
+	width: $width;
+	border: none;
+	cursor: pointer;    
+
+  &:hover {
+  	background: url('../images/'+ $imgfile + '_over.' + $format) no-repeat transparent;
+  }
+
+}
+

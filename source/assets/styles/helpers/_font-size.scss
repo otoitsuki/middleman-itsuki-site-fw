@@ -1,0 +1,12 @@
+//------------------------------------
+// $font-size:font-size(12px,1)
+//------------------------------------
+// tks for inuit.css mixins , Licensed under the Apache License, Version 2.0.(http://apache.org/licenses/LICENSE-2.0) */
+@mixin font-size($fontsize, $line-height:false){
+    font-size:$fontsize;
+    font-size:pxtorem($fontsize);
+    @if $line-height == true{
+        line-height:ceil($line-height / $b-lineheight) * ($b-lineheight / $line-height);
+
+    }
+}

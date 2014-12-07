@@ -1,0 +1,42 @@
+doctype
+html lang="zh-TW" 
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width initial-scale=1"
+    title #{current_page.data.title}｜#{site_title} 
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="description" content="#{site_description}"
+    meta name="author" content="#{site_author}"
+
+    meta content="#{site_title}" property="og:title"
+    meta content="#{site_url}" property="og:url"
+    meta content="#{site_description}" property="og:description"
+    meta content="#{site_og_image}" property="og:image"
+    meta content="#{site_type}" property="og:type"
+
+    link href="#{image_path('favicon.ico')}" rel="icon" type="imagex-icon"
+    link href="#{image_path('favicon.ico')}" rel="shortcut icon" type="imagex-icon"
+
+    // 一般根目錄網站方案
+    = stylesheet_link_tag "style"
+    
+    / selectivizr本機端只能夠搭配本機端的jquery library，有用到selectivizr就兩個都用本機端，沒有用到就接Google CDN
+    / = javascript_include_tag "jquery-1.11.1"
+    /[if (gte IE 6)&(lte IE 8)]
+      / = javascript_include_tag "selectivizr"
+    /[if lt IE 9]
+      script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"
+      
+    / = javascript_include_tag "analytics.js"
+  body
+    .page
+      = yield
+    script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+    / /[if IE]
+    /   = partial "/partials/pie-setup"
+    /   = javascript_include_tag "/scripts/PIE"
+    / = javascript_include_tag "/scripts/main"
+    - if content_for?(:page_javascript)
+        = yield_content :assets
+
+      

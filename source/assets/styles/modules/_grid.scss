@@ -1,0 +1,116 @@
+// *************************************
+//
+//   Layout
+//   -> Config, Grid
+//
+// *************************************
+
+// -------------------------------------
+//   Config
+// -------------------------------------
+
+
+$show-grid-backgrounds: show-columns; // 選項：show、hide、show-columns、show-baseline
+
+// gutter-position 說明
+// before：推左邊界(margin-left)
+// after ：推右邊界，同susy1(margin-right)
+// split ：左右邊界推gutter的一半，同960grid
+// inside：推欄的左右內距(padding-left、padding-right)
+// inside-static ：用inside會用%來推padding，這則是以單位來推，例：px、em，看你的column-width是用什麼單位
+
+$susy: (
+  math: fluid,
+  container: auto, // container最大寬度。預設auto，依照columns與gutters設定自動算出數值
+  columns: 4, // 預設是四欄
+  gutters: 1/3, // 欄位與欄位間的間距，單位是和columns的比例％，預設1/4
+  gutter-position: after , // 每欄之間顯示模式，看上面
+  column-width: 60px, // 欄位寬度，預設是false（因為都是用比例去算）
+  global-box-sizing: border-box, // 搭配 border-box-sizing mixin 使用，沒開不能用
+  last-flow: to, // gutter-position設定成after或before的話，可能有機會會改到這個設定
+
+  debug: (
+    image: $show-grid-backgrounds,
+  ),
+  use-custom: (
+    background-image: true, // for debugging
+    background-options: false, // for debugging
+    clearfix: true, // 是否要自動抓取compass預設的clearfix的mixin
+  )
+);
+
+$desktop: (
+  math: fluid,
+  container: auto, // container最大寬度。預設auto，依照columns與gutters設定自動算出數值
+  columns: 12, // 預設是四欄
+  gutters: 1/3, // 欄位與欄位間的間距，單位是和columns的比例％，預設1/4
+  gutter-position: after , // 每欄之間顯示模式，看上面
+  column-width: 60px, // 欄位寬度，預設是false（因為都是用比例去算）
+  global-box-sizing: border-box, // 搭配 border-box-sizing mixin 使用，沒開不能用
+  last-flow: to, // gutter-position設定成after或before的話，可能有機會會改到這個設定
+);
+
+// -------------------------------------
+//   Grid
+// -------------------------------------
+.grid {
+  @include container;
+  @include border-box-sizing;
+  @include susy-breakpoint(960px,$desktop){
+    @include container;
+    @include border-box-sizing;
+  }
+}
+
+@include susy-breakpoint(max-width 640px,$susy){
+  html {
+    @include font-size(12px);
+  }
+}
+
+
+// --- 主要頁面區塊 --- //
+
+
+.header, .container, .footer {
+  width: 100%;
+}
+
+
+
+
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+
+%clearfix {
+  @include clearfix;
+}
+
+
+%l-block, .l-block {
+  display: block;
+}
+
+%l-pullLeft, .l-pullLeft {
+  float: left;
+}
+  
+
+%l-pullRight, .l-pullRight {
+  float: right;
+}
+  
+%blockC ,.blockC {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+%tC ,.tC {
+  text-align: center;
+}
+%tR ,.tR {
+  text-align: right;
+}
+
+

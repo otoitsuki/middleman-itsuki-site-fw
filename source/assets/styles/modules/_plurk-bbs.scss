@@ -1,0 +1,78 @@
+// *************************************
+//
+//   用噗浪當BBS的區塊
+//
+// *************************************
+
+// 噗浪container 
+#plurk_container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "微軟正黑體", "Microsoft JhengHei", sans-serif;
+  font-weight: normal;
+  @include at-breakpoint($phone) {
+    width: 95%;
+  }
+  .plurk.response {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    &:last-of-type {
+      border: 0px;
+    }
+  }
+}
+
+
+// 開頭噗
+.plurk_content {
+    &:first-child {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+  }
+
+// 回覆module
+.plurk.response {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+  @include font-size(16px);
+  text-align: left;
+  color: #333;
+  line-height: 1.6;
+}
+
+  // 回覆者暱稱
+  .plurk.response .nick {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    color: #007F70 !important; 
+    text-align: right;
+    font-weight: bolder;
+  }
+
+  // 回覆者噗文
+  .plurk.response .plurk_content {
+    display: block;
+    overflow: hidden;
+    *overflow: visible;
+    zoom: 1;
+  }
+
+//  發表留言
+.back_link {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 36px;
+  color: #fff;
+  background-color: #1E98B9;
+}
+
+// 載入中與載入失敗的訊息
+#plurk_container .stuts {
+  margin: 3px auto;
+}

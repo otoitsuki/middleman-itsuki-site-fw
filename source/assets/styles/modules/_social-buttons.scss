@@ -1,0 +1,16 @@
+
+.social-buttons {
+    text-align: center;
+    margin: 10px 0 0;
+    padding: 0;
+    @include horizontal-list;
+}
+
+  .social-buttons li {
+      padding-left: 5px;
+      line-height: 20px;
+  }
+  // facebook button fix
+  .fb_iframe_widget {
+    vertical-align: middle;
+  }

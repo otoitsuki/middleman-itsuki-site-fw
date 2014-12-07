@@ -1,0 +1,15 @@
+// ------------------------------------------------
+// 專門給UL用的卡片排序區塊
+// $override:一行排放幾張卡片
+// $total:一行切成多少格塊（GRID），預設12GRID
+// ------------------------------------------------
+@mixin card-block($override,$total:12) {
+	@include span-columns($total,$total);
+	margin: 0 !important;
+	padding: 0 !important; 
+	list-style-type: none;
+	> li {
+		@include span-columns($total / $override,$total);
+    	&:nth-child(#{$override}n) { @include omega; } 
+	}
+}

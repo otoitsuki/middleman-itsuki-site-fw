@@ -1,0 +1,1 @@
+/* (c) 2014 Itsuki. http://otoitsuki.info  */

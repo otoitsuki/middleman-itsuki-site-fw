@@ -1,0 +1,25 @@
+---
+title: Index
+---
+.header
+  = partial "/partials/header"
+.container
+  .grid
+    h1 = lorem.sentence 
+    p = lorem.sentence 
+    p = lorem.sentence 
+    = partial "partials/social.html.erb"
+    .sidebar
+    .main
+      h1 我是 h1
+      p = lorem.sentence 
+      h2 我是 h2
+      p = lorem.sentence 
+      h3 我是 h3
+      p = lorem.sentence 
+      h4 我是 h4
+      p = lorem.sentence 
+.footer
+  = partial "/partials/footer"
+- content_for :page_javascript do
+   script src="scripts/main.js"

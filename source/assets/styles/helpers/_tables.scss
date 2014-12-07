@@ -1,0 +1,56 @@
+// *************************************
+//
+//   tables 各種table 設計
+//
+// *************************************
+
+//-------------------------------------
+// normal-table 標準表格，無thead th
+// from http://weboook.blog22.fc2.com/blog-entry-329.html
+//-------------------------------------
+
+$normal-table-bgc-odd: #fff;
+$normal-table-bgc-even: #f1f6fc;
+$normal-table-bgc-hover: #bbd4ee;
+$normal-table-border:  $b-borderColor;
+$normal-table-box-shadow: $b-boxShadow;
+
+
+%normal-table {
+  table-layout:fixed;
+  border-spacing: 0;
+
+  tr:first-child {
+    border-left:1px solid $normal-table-border;
+    border-top: 1px solid $normal-table-border;
+    border-bottom:1px solid $normal-table-border;
+  }
+  tr:last-child {
+    border-radius:0 5px 0 0;
+    border-right:1px solid $normal-table-border;
+    box-shadow: 2px 2px 1px $normal-table-box-shadow,0px 1px 1px rgba(255,255,255,0.3) inset;
+  }
+  tr td {
+    padding: 8px 15px;
+    border-bottom: 1px solid $normal-table-border;
+    border-left: 1px solid $normal-table-border;
+    text-align: center;
+  }
+  tr td:last-child {
+    border-right: 1px solid $normal-table-border;
+    box-shadow: 2px 2px 1px $normal-table-box-shadow;
+  }
+  tr {
+    background: $normal-table-bgc-odd;
+  }
+  tr:nth-child(2n+1) {
+    background: $normal-table-bgc-even;
+  }
+  tr:last-child td {
+    box-shadow: 2px 2px 1px $normal-table-box-shadow;
+  }
+  tr:hover {
+    background: #bbd4ee;
+    cursor:pointer;
+  }
+}

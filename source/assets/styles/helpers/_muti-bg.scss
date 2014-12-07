@@ -1,0 +1,31 @@
+// *************************************
+//
+//   mutiple-bg 多背景
+//  
+//  記得裝PIE.JS對應
+//  如果中間主要圖片不是圖片而是顏色等要另外寫的話，中間值填null
+//  Example：
+//  @include muti-bg("頭","中","尾",重複的方式:預設不重複);
+//
+// *************************************
+
+@mixin muti-bg($bg-header,$bg-main,$bg-footer,$repeat-style: no-repeat) {
+  @if $bg-main != null {
+    background:
+    url("$bg-header") top left $repeat-style,
+    url("$bg-footer") bottom left $repeat-style,
+    url("$bg-main") top left repeat;
+    -pie-background:
+    url("$bg-header") top left $repeat-style,
+    url("$bg-footer") bottom left $repeat-style,
+    url("$bg-main") top left repeat;
+  }
+  @else {
+    background:
+    url($bg-header) top left $repeat-style,
+    url($bg-footer) bottom left $repeat-style;
+    -pie-background:
+    url($bg-header) top left $repeat-style,
+    url($bg-footer) bottom left $repeat-style;
+  }
+};

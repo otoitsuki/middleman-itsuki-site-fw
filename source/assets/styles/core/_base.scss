@@ -1,0 +1,108 @@
+// *************************************
+//
+//   Base
+//   -> Base-level tags (body, p, etc.)
+//   -> Typography
+//
+// *************************************
+
+
+// -------------------------------------
+//   Base-level 
+// -------------------------------------
+// * {
+//   -webkit-box-sizing: border-box;
+//      -moz-box-sizing: border-box;
+//           box-sizing: border-box;
+// }
+
+html {
+  font-size: 100%;
+  font-family: $b-fontFamily;
+  background-color: #fff;
+}
+
+body, select, input, textarea {
+	color: $c-text;
+}
+
+
+
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+
+ul, ol, p, table {
+  @include font-size($b-fontSize);
+  line-height: $b-lineHeight;
+  margin-bottom: $b-fontSize * 1.43;
+  margin-top: 0;
+}
+
+li {
+  // margin-bottom: $b-space-s;
+  margin-top: 0;
+}
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+
+img {
+    max-width: 100%; // Add !important if needed. //
+    height: auto;    // Add !important if needed. //
+}
+
+a {
+  @include link-colors($c-link, $c-link-hover, $c-link-active, $c-link-visited, $c-link-focus);
+    text-decoration:    none;
+    -webkit-transition: color .3s ease-in-out;
+    transition:         color .3s ease-in-out;
+}
+
+
+// -------------------------------------
+//   Typography
+// -------------------------------------
+
+
+// ----- Headers ----- //
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $b-fontFamily-sans;
+  font-weight: 500; // Chrome底下思源黑體不支援數字字級
+  line-height: 1.47em;
+  @include rem-fallback(margin, .25, 0, .7, 0); // from https://github.com/Dogfalo/materialize/blob/master/sass/components/_typography.scss
+}
+
+
+h1 { 
+  font-size: $b-fontSize-MD-h1;
+  // font-size: $b-fontSize-Golden-h1;
+}
+h2 { 
+  font-size: $b-fontSize-MD-h2;
+  // font-size: $b-fontSize-Golden-h2;
+}
+h3 { 
+  font-size: $b-fontSize-MD-h3;
+  // font-size: $b-fontSize-Golden-h3;
+}
+h4 { 
+  font-size: $b-fontSize-MD-h4;
+  // font-size: $b-fontSize-Golden-h4;
+}
+
+
+
+// ----- others ----- //
+
+
+.text-important {
+  color: $c-important;
+}

@@ -1,0 +1,13 @@
+
+// 支援IE8 的 rgba() 背景顏色 MIXIN
+// 用法：@include bg-rgba(#fff,0.5);
+
+
+@mixin bg-rgba($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}

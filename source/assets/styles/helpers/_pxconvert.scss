@@ -1,0 +1,28 @@
+//去掉一個值的單位，如12px => 12
+@function strip-units($number){
+    @return $number / ($number * 0 + 1);
+}
+
+// @function pxtorem($px){
+//     @return $px / $b-fontSize * 1rem;
+// }
+@function pxtorem($target-size,$context:$b-fontSize){
+    @if not unitless($target-size){//unitless(12)=>true,unitless(12px)=>false
+        $target-size: strip-units($target-size);//去掉 $target-size單位
+    }
+    @if not unitless($context){
+        $context: strip-units($context);//去掉 $context單位
+    }
+    @return ($target-size / $context) * 1rem;
+}
+
+
+@function pxtoem($target-size,$context:$b-fontSize){
+    @if not unitless($target-size){//unitless(12)=>true,unitless(12px)=>false
+        $target-size: strip-units($target-size);//去掉 $target-size單位
+    }
+    @if not unitless($context){
+        $context: strip-units($context);//去掉 $context單位
+    }
+    @return ($target-size / $context) * 1em;
+}
